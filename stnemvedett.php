@@ -1,7 +1,6 @@
 <?php
 require_once 'db.php';
-extract($_GET);
-$sql="SELECT tajnev from nev where halid={$id}";
+$sql="SELECT COUNT(*) as nr,gyakorisag from faj where vedett=0 GROUP BY gyakorisag";
 $stmt=$db->query($sql);
 echo json_encode($stmt->fetchAll());
 ?>
